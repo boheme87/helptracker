@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var config = require('./config.json');
-var GlobalRouter = require('./routes/GlobalRouter');
+var GlobalRouter = require('./api/GlobalRouter');
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -18,7 +18,7 @@ mongoose.connect(config.connectionString, function (err) {
 
 var port = process.env.PORT || 8080;
 
-app.use('/api', new GlobalRouter().init());
+app.use('/api', new GlobalRouter().getRoutes());
 
 app.listen(port);
 console.log('Server waiting for requests on port' + port);

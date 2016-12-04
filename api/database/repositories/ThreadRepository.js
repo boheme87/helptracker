@@ -1,32 +1,9 @@
-var HelpThreadModel = require('../app/models/HelpThread');
+var HelpThreadModel = require('../../database/models/HelpThread');
 
-module.exports = class GlobalRouter {
+module.exports = class ThreadRepository {
 
-    constructor() {
-        this.express = require('express');
-        this.router = this.express.Router();
-
-    };
-
-    initMiddlewareLogger() {
-        this.router.use(function (req, res, next) {
-            console.log('Request received');
-            next();
-        });
-    }
-
-    init() {
-        this.initMiddlewareLogger();
-        this.initRoutes();
-        return this.router;
-    }
-
-    initRoutes() {
-
-        // all routes here
-        this.router.route('/thread').post(function (req, res) {
-            var thread = new HelpThreadModel();
-            thread.name = req.body.name;
+   create(helpThread) {
+        thread.name = req.body.name;
             thread.author = {
                 name: 'Achim',
                 email: 'a@m.com',
@@ -52,7 +29,15 @@ module.exports = class GlobalRouter {
                     message: 'HelpThread created!'
                 });
             });
-        });
-    }
 
-};
+            
+        let thread = new HelpThreadModel();
+        helpThread.save(function (err) {
+                if (err)
+                    res.send(err);
+                res.json({
+                    message: 'HelpThread created!'
+                });
+            });
+   }
+}

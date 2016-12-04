@@ -1,3 +1,4 @@
+var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 var Author       = require('./Author');
 var Location       = require('./Location');
