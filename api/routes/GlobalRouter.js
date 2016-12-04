@@ -21,12 +21,30 @@ module.exports = class GlobalRouter {
         return this.router;
     }
 
-
-
     initRoutes() {
+
+        // all routes here
         this.router.route('/thread').post(function (req, res) {
             var thread = new HelpThreadModel();
             thread.name = req.body.name;
+            thread.author = {
+                name: 'Achim',
+                email: 'a@m.com',
+                optOut: false,
+                home: 'Munich'
+            };
+            thread.threadId = 'abcd';
+            thread.createdAt = Date.now();
+            thread.stages = [{
+                author: {
+                    name: 'Achim',
+                    email: 'a@m.com',
+                    optOut: false,
+                    home: 'Munich'
+                },
+                createdAt: Date.now()
+            }]
+
             thread.save(function (err) {
                 if (err)
                     res.send(err);
