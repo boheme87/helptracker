@@ -7,7 +7,7 @@ module.exports = class PostThreadController {
         this.repository = new ThreadRepository();
     }
 
-    handle(body) {
+    async handle(body) {
 
         let helpThread = HelpThreadFactory
             .create(body.name,
@@ -16,7 +16,7 @@ module.exports = class PostThreadController {
                 body.optOut,
                 body.authorHome);
 
-        
-
+        await this.repository.create(helpThread);
+        return "test";
     }
 }
