@@ -8,7 +8,6 @@ module.exports = class PostThreadController {
     }
 
     handle(body) {
-      console.log(body);
         let helpThread = HelpThreadFactory
             .create(body.name,
                 body.authorName,

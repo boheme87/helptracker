@@ -1,6 +1,5 @@
 var BaseRouter = require('../../api/BaseRouter');
 
-
 module.exports = class ThreadRouter extends BaseRouter {
 
     constructor() {
@@ -16,7 +15,7 @@ module.exports = class ThreadRouter extends BaseRouter {
         this.router.route('/threads').post(function (req, res) {
           var controller = that.postThreadController;
           controller.handle(req.body);
-          res.json('{ "status": "success"}');
+          res.json(that.STATUS_SUCCESS);
         });
     }
 

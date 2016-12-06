@@ -1,5 +1,6 @@
 var HelpThreadModel = require('../database/models/HelpThread');
 var ThreadRouter = require('../controller/threads/ThreadRouter');
+var StageRouter = require('../controller/stages/StageRouter');
 var BaseRouter = require('./BaseRouter');
 
 module.exports = class GlobalRouter extends BaseRouter {
@@ -23,6 +24,7 @@ module.exports = class GlobalRouter extends BaseRouter {
 
     initRoutes() {
         this.router.use('/', new ThreadRouter().getRoutes());
+        this.router.use('/', new StageRouter().getRoutes());
     }
 
 };
