@@ -1,16 +1,16 @@
 module.exports = class HelpThread {
 
     constructor(threadId, name, authorName, authorEmail, optOut, authorHome) {
-        thread.name = req.body.name;
-        thread.author = {
+        this.name = name;
+        this.author = {
             name: authorName,
             email: authorEmail,
             optOut: false,
             home: authorHome
         };
-        thread.threadId = threadId;
-        thread.createdAt = Date.now();
-        thread.stages = [];
+        this.threadId = threadId;
+        this.createdAt = Date.now();
+        this.stages = [];
     }
 
 }

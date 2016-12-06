@@ -2,16 +2,17 @@ var HelpThreadModel = require('../../database/models/HelpThread');
 
 module.exports = class ThreadRepository {
 
-    async create(helpThread) {
+    create(helpThread) {
+        let thread = new HelpThreadModel();
         thread.name = helpThread.name;
         thread.author = helpThread.author;
-        thread.threadId = helpThread.author;
+        thread.threadId = helpThread.threadId;
         thread.createdAt = helpThread.createdAt;
-        thread.stages = helpThread.stages;
+        thread.stages = [];
 
-        await thread.save(function (err) {
+        thread.save(function (err) {
             if (err)
-                throw new 'Err during save' + err;
+                throw new Error('Err during save ' + err);
         });
     }
 }

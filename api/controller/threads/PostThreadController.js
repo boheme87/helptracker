@@ -7,16 +7,16 @@ module.exports = class PostThreadController {
         this.repository = new ThreadRepository();
     }
 
-    async handle(body) {
-
+    handle(body) {
+      console.log(body);
         let helpThread = HelpThreadFactory
             .create(body.name,
                 body.authorName,
                 body.authorEmail,
                 body.optOut,
                 body.authorHome);
+                console.log(helpThread);
+        this.repository.create(helpThread);
 
-        await this.repository.create(helpThread);
-        return "test";
     }
 }

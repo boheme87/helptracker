@@ -18,16 +18,6 @@ mongoose.connect(config.connectionString, function (err) {
 
 var port = process.env.PORT || 8080;
 
-
-function catchAsyncErrors(fn) {  
-    return (req, res, next) => {
-        const routePromise = fn(req, res, next);
-        if (routePromise.catch) {
-            routePromise.catch(err => next(err));
-        }
-    }
-}
-
 app.use('/api', new GlobalRouter().getRoutes());
 
 

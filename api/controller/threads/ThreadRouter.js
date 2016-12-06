@@ -8,13 +8,15 @@ module.exports = class ThreadRouter extends BaseRouter {
         this.init();
         var PostThreadController = require('./PostThreadController');
         this.postThreadController = new PostThreadController();
-    };
+        this.that = this;
+    }
 
     init() {
+       var that = this;
         this.router.route('/threads').post(function (req, res) {
-            var controller = this.postThreadController;
-           await controller.handle(req.body);
-           res.json('{}');
+          var controller = that.postThreadController;
+          controller.handle(req.body);
+          res.json('{ "status": "success"}');
         });
     }
 
