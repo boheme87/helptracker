@@ -13,4 +13,4 @@ module.exports = class HelpThread {
         this.stages = [];
     }
 
-}
+};

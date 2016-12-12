@@ -6,4 +6,4 @@ module.exports = class HelpThreadFactory {
         let threadId = Math.random() * 10000;
         return new HelpThread(threadId, name, authorName, authorEmail, optOut, authorHome);
     }
-}
+};

@@ -11,12 +11,12 @@ module.exports = class StageRouter extends BaseRouter {
     }
 
     init() {
-       var that = this;
-        this.router.route('/threads/:id/stages').post(function (req, res) {
-          var controller = that.postStageController;
-          controller.handle(req.body);
-          res.json(that.STATUS_SUCCESS);
+        var that = this;
+        this.router.route('/threads/:id/stages').post(function(req, res) {
+            var controller = that.postStageController;
+            controller.handle(req.body, req.params.id);
+            res.json(that.STATUS_SUCCESS);
         });
     }
 
-}
+};

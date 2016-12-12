@@ -10,6 +10,4 @@ module.exports = class HelpThread {
         this.createdAt = Date.now();
         this.location = location;
     }
-    // geometry: { type: { type: String, default:'Point' }, coordinates: [Number] }
-
-}
+};

@@ -7,14 +7,14 @@ module.exports = class PostStageController {
         this.repository = new ThreadRepository();
     }
 
-    handle(body) {
+    handle(body, helpThreadId) {
         let stage = StageFactory
             .create(body.authorName,
                 body.authorEmail,
                 body.optOut,
                 body.authorHome,
                 body.location);
-        this.repository.insertOneStage(stage,helpThread);
+        this.repository.insertOneStage(stage, helpThreadId);
 
     }
 };

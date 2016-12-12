@@ -11,12 +11,11 @@ module.exports = class ThreadRouter extends BaseRouter {
     }
 
     init() {
-       var that = this;
-        this.router.route('/threads').post(function (req, res) {
-          var controller = that.postThreadController;
-          controller.handle(req.body);
-          res.json(that.STATUS_SUCCESS);
+        var that = this;
+        this.router.route('/threads').post(function(req, res) {
+            var controller = that.postThreadController;
+            controller.handle(req.body);
+            res.json(that.STATUS_SUCCESS);
         });
     }
-
-}
+};

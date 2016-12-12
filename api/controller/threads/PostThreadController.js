@@ -1,6 +1,7 @@
 var HelpThreadFactory = require('./HelpThread/HelpThreadFactory');
 var ThreadRepository = require('../../database/repositories/ThreadRepository');
 
+
 module.exports = class PostThreadController {
 
     constructor() {
@@ -14,8 +15,7 @@ module.exports = class PostThreadController {
                 body.authorEmail,
                 body.optOut,
                 body.authorHome);
-                console.log(helpThread);
         this.repository.create(helpThread);
 
     }
-}
+};
